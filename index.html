@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="INSE - Soluciones integrales en sistemas de combustión, redes de gas e investigación y desarrollo.">
+    <title>INSE | Ingeniería en Combustión y Redes de Gas</title>
+    <style>
+        /* Variables globales de diseño */
+        :root {
+            --bg-main: #0e1217;
+            --bg-card: #1c232d;
+            --bg-card-hover: #252f3d;
+            --accent-blue: #1e88e5;
+            --accent-blue-light: #42a5f5;
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --border-color: #2d3748;
+            --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* Reseteo básico y tipografía */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--accent-blue-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Encabezado y Navegación */
+        header {
+            background-color: rgba(14, 18, 23, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--text-primary);
+        }
+
+        .logo span {
+            color: var(--accent-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        /* Sección Hero */
+        .hero {
+            padding: 9rem 2rem 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #1565c0;
+        }
+
+        /* Estructura de Secciones */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-blue);
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Grilla de Servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+            background-color: var(--bg-card-hover);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Formulario de Contacto */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 0.8rem;
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        /* Pie de Página */
+        footer {
+            background-color: #080a0d;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Adaptabilidad Móvil */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación Principal -->
+    <header>
+        <nav>
+            <div class="logo">INSE<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Presentación Principal (Hero) -->
+    <section id="inicio" class="hero">
+        <h1>Ingeniería Especializada en Combustión y Redes de Gas</h1>
+        <p>Servicios de alta precisión técnica, diseño normativo de redes y desarrollo de soluciones de ingeniería para el sector industrial.</p>
+        <a href="#contacto" class="btn-primary">Consultar Proyecto</a>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="services-grid">
+            
+            <div class="card">
+                <div class="card-icon">🔥</div>
+                <h3>Sistemas de Combustión</h3>
+                <p>Auditoría, optimización y mantenimiento de sistemas térmicos industriales, garantizando la máxima eficiencia operativa y cumplimiento ambiental.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🛠️</div>
+                <h3>Redes de Suministro de Gas</h3>
+                <p>Diseño, cálculo e inspección técnica para redes de distribución de gas natural y GLP bajo normatividad vigente.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔬</div>
+                <h3>Investigación y Desarrollo (I+D)</h3>
+                <p>Innovación aplicada al control de procesos térmicos, eficiencia energética y prototipado técnico ajustado a necesidades específicas.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sección Acerca de INSE -->
+    <section id="nosotros">
+        <h2 class="section-title">Acerca de INSE</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--text-secondary);">
+            En INSE nos especializamos en la integración de soluciones técnicas para la industria. Nuestro enfoque combina el rigor de la ingeniería tradicional con procesos de I+D para optimizar la seguridad, continuidad y rendimiento de los sistemas de gas y combustión.
+        </p>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto">
+        <h2 class="section-title">Contacto</h2>
+        <form class="contact-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Mensaje preparado para envío.');">
+            <div class="form-group">
+                <label for="nombre">Nombre o Empresa</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre o Razón Social">
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com">
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Describe los requerimientos de tu proyecto..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="border: none; cursor: pointer;">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer>
+        <p>&copy; 2026 INSE - Ingeniería, Combustión y Redes de Gas. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
